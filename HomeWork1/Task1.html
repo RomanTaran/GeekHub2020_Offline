@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1</title>
+</head>
+<body>
+<script>
+    let array = [1,NaN,3,5,-3];
+    let sum = 0;
+    let max = array[0];
+    let min = array[0];
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > max) max = array[i];
+        if (array[i] < min) min = array[i];
+    }
+    console.log('Сумма элементов массива: ' + sum);
+    console.log('Минимальный элемент массива: ' + min);
+    console.log('Максимальный элемент массива: ' + max);
+
+</script>
+</body>
+</html>
