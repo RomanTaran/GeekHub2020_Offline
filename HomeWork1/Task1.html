@@ -2,24 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Задание 1</title>
+    <title>Task 1</title>
 </head>
 <body>
 <script>
-    let array = [1,NaN,3,5,-3];
+    const array = [1,NaN,3,5,-3];
     let sum = 0;
     let max = array[0];
     let min = array[0];
+    // find the sum
     for (let i = 0; i < array.length; i++) {
         sum += array[i];
     }
+    // find min and max elements
     for (let i = 1; i < array.length; i++) {
         if (array[i] > max) max = array[i];
         if (array[i] < min) min = array[i];
     }
-    console.log('Сумма элементов массива: ' + sum);
-    console.log('Минимальный элемент массива: ' + min);
-    console.log('Максимальный элемент массива: ' + max);
+    //print sum, min and max elements
+    console.log('Array\'s elements sum: ' + sum);
+    console.log('Min element of array: ' + min);
+    console.log('Max element of array: ' + max);
 
 </script>
 </body>
