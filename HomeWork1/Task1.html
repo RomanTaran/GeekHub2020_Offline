@@ -15,9 +15,13 @@
         sum += array[i];
     }
     // find min and max elements
-    for (let i = 1; i < array.length; i++) {
-        if (array[i] > max) max = array[i];
-        if (array[i] < min) min = array[i];
+    for (let i = 1; i < array.length; i++){
+        if (array[i] > max){
+            max = array[i];
+        }
+        if (array[i] < min){
+            min = array[i];
+        }
     }
     //print sum, min and max elements
     console.log('Array\'s elements sum: ' + sum);
