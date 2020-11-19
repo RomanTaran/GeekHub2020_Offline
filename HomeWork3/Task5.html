@@ -8,10 +8,9 @@
 <script>
     //myForEach
     function myForEach (array, callbackFunc, thisArg){
-        var i, length = arr.length;
-        for (let i = 0; i < array.length; i++) {
+       for (let i = 0; i < array.length; i++) {
             callbackFunc.call(thisArg, array[i], i, array);
-        }
+       }
     };
     //myMap
     function myMap(array, callbackFunc, thisArg){
@@ -22,11 +21,18 @@
     return newArray;
     };
     //mySort
-    function mySort(array, compareFunc){
-        if(compareFunc == undefined){
-
+    function mySort(array) {
+      for (let i = 0; i < array.length-1; i += 1) {
+        for (let j = 0; j < array.length-1-i; j++) {
+          if (String(array[j+1]) < String(array[j])) {
+              let t = String(array[j+1]);
+              array[j+1] = String(array[j]);
+              array[j] = t;
+          }
         }
-    };
+      }
+      return array;
+    }
     //myFilter
     function myFilter (array, callbackFunc, thisArg) {
         let newArray = [];
