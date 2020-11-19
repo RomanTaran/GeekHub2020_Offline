@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 5</title>
+</head>
+<body>
+<script>
+    //myForEach
+    function myForEach (array, callbackFunc, thisArg){
+        var i, length = arr.length;
+        for (let i = 0; i < array.length; i++) {
+            callbackFunc.call(thisArg, array[i], i, array);
+        }
+    };
+    //myMap
+    function myMap(array, callbackFunc, thisArg){
+    let newArray = [];
+    for (let i = 0; i < array.length; i++) {
+    newArray[i] = (callbackFunc.call(thisArg, array[i], i, array));
+    }
+    return newArray;
+    };
+    //mySort
+    function mySort(array, compareFunc){
+        if(compareFunc == undefined){
+
+        }
+    };
+    //myFilter
+    function myFilter (array, callbackFunc, thisArg) {
+        let newArray = [];
+        for (let i = 0; i < array.length; i++) {
+            if (callbackFunc.call(thisArg, array[i], i, array)) {
+                newArray[newArray.length] = array[i];
+            }
+        }
+        return newArray;
+    };
+    //myFind
+    function myFind (array, callbackFunc, thisArg) {
+        let searchElement;
+        for (let i = 0; i < array.length; i++) {
+            if (callbackFunc.call(thisArg, array[i], i, array)) {
+                searchElement=array[i];
+                break;
+            }
+        }
+    return searchElement;
+    };
+</script>
+</body>
+</html>

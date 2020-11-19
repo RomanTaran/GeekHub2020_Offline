@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 4</title>
+</head>
+<body>
+<script>
+    function calculate(num) {
+        let myNum = num;
+        return {
+            add: function (num) {
+                myNum += num;
+                return {
+                    multiply: function (num) {
+                        myNum *= num;
+                        return {
+                            result: function () {
+                                return myNum;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+     }
+</script>
+</body>
+</html>

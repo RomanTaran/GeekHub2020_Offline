@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3</title>
+</head>
+<body>
+<script>
+    function sum(num1) {
+        return function (num2) {
+            return function (num3) {
+                return num1 + num2 + num3;
+            }
+        }
+    }
+    //You can use short conversation: const sum = (num1) => (num2) => (num3) => num1 + num2 + num3;
+    console.log(sum(1)(2)(3));
+</script>
+</body>
+</html>
