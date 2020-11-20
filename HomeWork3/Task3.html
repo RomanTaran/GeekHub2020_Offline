@@ -6,15 +6,21 @@
 </head>
 <body>
 <script>
-  function sum(num1) {
-    return function (num2) {
-      return function (num3) {
-        return function(){return num1 + num2 + num3;}
-      }
+  function sum(num) {
+    let result = num;
+    function func(num1){
+      result += num1;
+      return func;
     }
+    func.valueOf = function(){
+      return result;
+    };
+    func.toString = function () {
+      return String(result);
+    }
+    return func;
   }
-    //You can use short conversation: const sum = (num1) => (num2) => (num3) => () => num1 + num2 + num3;
-console.log(sum(1)(2)(3)());
+  console.log(sum(1)(2)(3)(10)(20));
 </script>
 </body>
 </html>
