@@ -6,24 +6,23 @@
 </head>
 <body>
 <script>
-    function calculate(num) {
-        let myNum = num;
-        return {
-            add: function (num) {
-                myNum += num;
-                return {
-                    multiply: function (num) {
-                        myNum *= num;
-                        return {
-                            result: function () {
-                                return myNum;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-     }
+function calculate(num) {
+  return {
+    num,
+    add(num1) {
+      this.num += num1;
+      return this;
+    },
+    multiply(num2) {
+      this.num *= num2;
+      return this;
+    },
+    result() {
+      return this.num;
+    }
+  }
+}
+console.log(calculate(3).add(2).multiply(2).result());
 </script>
 </body>
 </html>
