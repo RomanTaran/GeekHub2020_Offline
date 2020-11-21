@@ -6,54 +6,63 @@
 </head>
 <body>
 <script>
-    //myForEach
-    function myForEach (array, callbackFunc, thisArg){
-       for (let i = 0; i < array.length; i++) {
-            callbackFunc.call(thisArg, array[i], i, array);
-       }
-    };
-    //myMap
-    function myMap(array, callbackFunc, thisArg){
-    let newArray = [];
-    for (let i = 0; i < array.length; i++) {
-    newArray[i] = (callbackFunc.call(thisArg, array[i], i, array));
+  // myForEach
+  Array.prototype.myForEach = function (callback, thisArg = this) {
+    for (let i = 0; i < this.length; i++) {
+      callback.call(null, this[i], i, this);
     }
-    return newArray;
-    };
-    //mySort
-    function mySort(array) {
-      for (let i = 0; i < array.length-1; i += 1) {
-        for (let j = 0; j < array.length-1-i; j++) {
-          if (String(array[j+1]) < String(array[j])) {
-              let t = String(array[j+1]);
-              array[j+1] = String(array[j]);
-              array[j] = t;
+  }
+  // myMap
+  Array.prototype.myMap = function (callback, thisArg = this) {
+    let newArr = [];
+    for (let i = 0; i < this.length; i++) {
+      newArr.push(callback.call(null, this[i], i, this));
+    }
+    return newArr;
+  }
+  // mySort
+  Array.prototype.mySort = function (compareFunction) {
+    if(compareFunction === undefined) {
+      for (let i = 0; i < this.length; i++) {
+        for (let j = 0; j < this.length - 1 - i; j++) {
+          if (String(this[j]) > String(this[j + 1])) {
+            let maxValue = this[j];
+            this[j] = this[j + 1];
+            this[j + 1] = maxValue;
           }
         }
       }
-      return array;
+      return this;
     }
-    //myFilter
-    function myFilter (array, callbackFunc, thisArg) {
-        let newArray = [];
-        for (let i = 0; i < array.length; i++) {
-            if (callbackFunc.call(thisArg, array[i], i, array)) {
-                newArray[newArray.length] = array[i];
+    else {
+        for (let i = 0; i < this.length; i++) {
+            for (let j = 0; j < this.length-i-1; j++) {
+                if (compareFunction(this[j],this[j+1]) > 0) {
+                    let maxValue = this[j];
+                    this[j] = this[j + 1];
+                    this[j + 1] = maxValue;
+                } 
             }
         }
-        return newArray;
-    };
-    //myFind
-    function myFind (array, callbackFunc, thisArg) {
-        let searchElement;
-        for (let i = 0; i < array.length; i++) {
-            if (callbackFunc.call(thisArg, array[i], i, array)) {
-                searchElement=array[i];
-                break;
-            }
-        }
-    return searchElement;
-    };
+        return this;
+    }
+  }
+  // myFilter
+  Array.prototype.myFilter = function (callback, thisArg = this) {
+    let newArr = [];
+    for (let i = 0; i < this.length; i++) {
+      if (callback.call(null, this[i], i, this)) newArr.push(this[i]);
+    }
+    return newArr;
+  }
+  // myFind
+  Array.prototype.myFind = function (callback, thisArg = this) {
+    for (let i = 0; i < this.length; i++) {
+      if (callback.call(null, this[i], i, this) === true) {
+        return this[i];
+      }
+    }
+  }  
 </script>
 </body>
 </html>
