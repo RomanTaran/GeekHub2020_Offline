@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+</head>
+<body>
+<script>
+  function moveAllGreed(rowNum, colNum, startRow, startCol){
+    let row = rowNum;
+    let column = colNum;
+    let startC = startCol;
+    let startR = startRow;
+    let stepRight = 0;
+    let stepBottom = 0;
+    let stepLeft = 1;
+    let stepTop = 1;
+    const moveList = [];
+    function insertInGrid (currentRow, currentColumn){
+      if (currentRow >= 0 && currentRow < row && currentColumn >= 0 && currentColumn < column){
+          moveList.push([startR,startC]);
+      }
+    }
+    function circle() {
+      let current = startC;
+      while (startC <= current+stepRight){
+        insertInGrid(startR,startC);
+        startC++;
+      }
+      stepRight += 2;
+      current = startR;
+      while(startR <= current+stepBottom){
+          insertInGrid(startR,startC);
+          startR++;
+      }
+      stepBottom += 2;
+      current = startC;
+      while (startC >= current-stepLeft) {
+        insertInGrid(startR,startC);
+        startC--;
+      }
+      stepLeft += 2;
+      current = startR;
+      while (startR >= current-stepTop){
+        insertInGrid(startR,startC);
+        startR--;
+      }
+      stepTop += 2;
+    }
+    while (moveList.length < row*column){
+        circle();
+    }
+    return moveList;
+  }
+  console.log(moveAllGreed(5,6,1,4));
+</script>
+</body>
+</html>
