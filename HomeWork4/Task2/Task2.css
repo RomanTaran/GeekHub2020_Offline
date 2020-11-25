@@ -1,0 +1,76 @@
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+* {
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+}
+
+.slide-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 3000px;
+    margin: auto;
+    position: relative;
+}
+
+.slide-container .slider {
+    display: none;
+    width: 100%;
+}
+
+.slide-container .slider {
+    animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+.slide-container .slider img {
+    -webkit-user-drag: auto;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+}
+.prev,
+.next {
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    font-size: 150px;
+    transition: all 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.dots-container .dot {
+    cursor: pointer;
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.dots-container .dot.active {
+    border: 10px solid green;
+    background-color: azure;
+}
