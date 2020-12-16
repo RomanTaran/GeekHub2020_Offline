@@ -1,0 +1,72 @@
+#react-app .tagging-wrapper {
+    border: 1px solid black;
+    margin-top: 8px;
+}
+body{
+    color: white;
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    margin: 0 auto
+}
+.tagging-wrapper {
+    color: white;
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    margin: 0 auto
+}
+.tagging-wrapper .tagging-element {
+    position: absolute;
+    border-radius: 5px;
+    background-color: rgba(34, 34, 34, .75);
+    opacity: .9;
+    border: 1px solid #000;
+    cursor: pointer
+}
+body .tagging-element {
+    border-radius: 5px;
+    background-color: rgba(34, 34, 34, .75);
+    opacity: .9;
+    border: 1px solid #000;
+    cursor: pointer
+}
+.tagging-wrapper .tagging-element .tagging-title {
+    padding: 5px 15px;
+    display: inline-block;
+    user-select: none;
+    white-space: nowrap
+}
+body .tagging-element .tagging-title {
+    padding: 5px 15px;
+    display: inline-block;
+    user-select: none;
+    white-space: nowrap
+}
+.tagging-wrapper .tagging-element .delete {
+    position: absolute;
+    top: -1px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(34, 34, 34, .75);
+    border: 1px solid #000;
+    cursor: pointer
+}
+body .tagging-element .delete {
+    position: absolute;
+    top: -1px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(34, 34, 34, .75);
+    border: 1px solid #000;
+    cursor: pointer
+}
+body .tagging-element .delete.pull-left {
+    right: 100%
+}
+.hide {
+    visibility: hidden;
+}
+.tagging-wrapper .tagging-element .delete.hide {
+    visibility: hidden
+}
