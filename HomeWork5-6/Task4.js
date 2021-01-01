@@ -1,9 +1,9 @@
 function isPrime(num) {
-  if (num == 0 || num == 1) {
+  if (num === 0 || num === 1) {
     return false;
   } else {
     for (let i = 2; i < num; i++) {
-      if (num % i == 0) {
+      if (num % i === 0) {
         return false;
       }
     }
@@ -12,7 +12,7 @@ function isPrime(num) {
 }
 
 function factorial(number) {
-  if (number == 1 || number == 0) {
+  if (number === 1 || number === 0) {
     return 1;
   } else {
     return number * factorial(number - 1);
@@ -20,7 +20,7 @@ function factorial(number) {
 }
 
 function fib(number) {
-  if (number == 0 || number == 1) {
+  if (number === 0 || number === 1) {
     return number;
   } else {
     return fib(number - 2) + fib(number - 1);
@@ -49,7 +49,7 @@ function reverse(str) {
 
 function indexOf(arr, num) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] == num) {
+    if (arr[i] === num) {
       return i;
     }
   }
@@ -58,15 +58,13 @@ function indexOf(arr, num) {
 
 function isPalindrome(str) {
   let oldStr = str.toLowerCase().split('').filter((elem) => {
-    if (elem != 0) return elem
+    if (elem !== '0') return elem
   }).join('');
   let newStr = str.toLowerCase().split('').filter((elem) => {
-    if (elem != 0) return elem
+    if (elem !== '0') return elem
   }).reverse().join('');
-  if (oldStr == newStr) {
-    return true;
-  }
-  return false;
+  return oldStr === newStr;
+
 }
 
 function missing(arr) {
@@ -74,7 +72,7 @@ function missing(arr) {
   let element;
   array.sort((a, b) => a - b);
   for (let i = 0; i < array.length; i++) {
-    if (array[i] != i + 1) {
+    if (array[i] !== i + 1) {
       element = (i + 1);
       break;
     }
@@ -94,10 +92,10 @@ function isbalanced(str) {
     return false;
   }
   for (let i = 0; i < arr.length / 2 - 1; i++) {
-    if (arr[i] != '{') return false;
+    if (arr[i] !== '{') return false;
   }
   for (let i = arr.length / 2; i < arr.length; i++) {
-    if (arr[i] != '}') return false;
+    if (arr[i] !== '}') return false;
   }
   return true;
 }

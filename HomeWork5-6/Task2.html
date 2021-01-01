@@ -5,12 +5,20 @@
     <title>Task 2</title>
 </head>
 <body>
-<input type="text" size="50 px">
+<label>
+    <input type="text" size="50 px">
+</label>
 <p></p>
 <script>
-  document.querySelector('input').addEventListener('keyup', function (event) {
-    event.preventDefault();
-    setTimeout(()=>(document.querySelector('p').innerText=event.target.value),4000)})
+  const input = document.querySelector("input")
+  const output = document.querySelector("p")
+  let inputTimeout = 0;
+  input.addEventListener("input", () => {
+    clearTimeout(inputTimeout);
+    inputTimeout = setTimeout(() => {
+      output.innerText = input.value;
+    }, 2000)
+  })
    </script>
 </body>
 </html>

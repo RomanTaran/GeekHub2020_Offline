@@ -1,6 +1,6 @@
 function perform(value) {
   console.log(value);
-  var param = 1;
+  const param = 1;
   console.log(param);
   return param;
 }
