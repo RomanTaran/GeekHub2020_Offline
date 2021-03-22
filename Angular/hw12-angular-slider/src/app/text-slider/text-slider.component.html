@@ -1,0 +1,10 @@
+<div id="carousel" class="carousel">
+  <button class="arrow prev" (click)="handlePrevClick()">⇦</button>
+  <div class="gallery">
+    <ul class="images" #draggable>
+      <li *ngFor="let slide of slides"><div class="content"><p>{{slide}}</p></div></li>
+    </ul>
+  </div>
+  <button class="arrow next" (click)="handleNextClick()">⇨</button>
+</div>
+

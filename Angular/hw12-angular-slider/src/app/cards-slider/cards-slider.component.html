@@ -1,0 +1,9 @@
+<div id="carousel" class="carousel">
+  <button class="arrow prev" (click)="handlePrevClick()">⇦</button>
+  <div class="gallery" >
+    <ul class="images" #draggable>
+      <li *ngFor="let image of images"><img src='./assets/cards/{{image}}' alt="image"></li>
+    </ul>
+  </div>
+  <button class="arrow next" (click)="handleNextClick()">⇨</button>
+</div>
