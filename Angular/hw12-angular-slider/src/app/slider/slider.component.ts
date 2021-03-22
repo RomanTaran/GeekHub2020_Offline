@@ -1,44 +1,29 @@
-import {AfterViewInit, Component, Inject, OnDestroy, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Inject, Input, OnDestroy, ViewChild} from '@angular/core';
 import {fromEvent, Subscription} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {DOCUMENT} from '@angular/common';
 
 @Component({
-  selector: 'app-cards-slider',
-  templateUrl: './cards-slider.component.html',
-  styleUrls: ['./cards-slider.component.scss']
+  selector: 'app-slider',
+  templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.scss']
 })
-export class CardsSliderComponent implements AfterViewInit, OnDestroy {
-
-  public images: Array<string> = [
-    '1.jpg',
-    '2.jpg',
-    '3.jpg',
-    '4.jpg',
-    '5.jpg',
-    '6.jpg',
-    '7.jpg',
-    '8.jpg',
-    '9.jpg',
-    '10.jpg',
-    '11.jpg',
-    '12.jpg',
-    '13.jpg',
-    '14.jpg',
-    '15.jpg'
-  ];
-  public width = 250;
-  public count = 5;
-  public position = 0;
-  public numberOfElements: number = this.images.length;
-  private subscriptions: Subscription[] = [];
-
-  @ViewChild('draggable') draggableElement: any;
+export class SliderComponent implements AfterViewInit, OnDestroy {
 
   constructor(@Inject(DOCUMENT) private document: any) {
   }
 
+  @Input() content: Array<string> = [];
+  public width = 250;
+  public count = 5;
+  public position = 0;
+  private subscriptions: Subscription[] = [];
+
+  @ViewChild('draggable') draggableElement: any;
+  public numberOfElements = 0;
+
   ngAfterViewInit(): void {
+    this.numberOfElements = this.content.length;
     this.initDrag();
   }
 
@@ -50,13 +35,14 @@ export class CardsSliderComponent implements AfterViewInit, OnDestroy {
     this.position += this.width;
     this.position = Math.min(this.position, 0);
     this.draggableElement.nativeElement.style.transform = 'translate3d(' + this.position + 'px,0,0)';
-  };
+  }
 
   handleNextClick = () => {
     this.position -= this.width;
     this.position = Math.max(this.position, -this.width * (this.numberOfElements - this.count));
+    console.log(this.position);
     this.draggableElement.nativeElement.style.transform = 'translate3d(' + this.position + 'px,0,0)';
-  };
+  }
 
   initDrag(): void {
     const dragStart$ = fromEvent<MouseEvent>(this.draggableElement.nativeElement, 'mousedown');
